@@ -21,10 +21,7 @@
     "autoload": {
         "psr-4": {
             "Phplrt\\Contracts\\Lexer\\": "src"
-        },
-        "files": [
-            "src/polyfill.php"
-        ]
+        }
     },
     "require-dev": {
         "vimeo/psalm": "^5.21"

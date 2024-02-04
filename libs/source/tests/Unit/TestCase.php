@@ -37,20 +37,6 @@ abstract class TestCase extends BaseTestCase
                     return File::fromSplFileInfo(new \SplFileInfo(static::getPathname()));
                 },
             ],
-            'File::fromPsrStream + filename' => [
-                static function () use ($factory) {
-                    $stream = $factory->createStreamFromFile(static::getPathname());
-
-                    return File::fromPsrStream($stream, static::getPathname());
-                },
-            ],
-            'File::fromPsrStream' => [
-                static function () use ($factory) {
-                    $stream = $factory->createStreamFromFile(static::getPathname());
-
-                    return File::fromPsrStream($stream);
-                },
-            ],
             'File::fromResource + filename' => [
                 static function () {
                     $resource = \fopen(static::getPathname(), 'rb');

@@ -39,7 +39,7 @@ trait SourceFactoryTrait
     public static function new($source): ReadableInterface
     {
         if ($source instanceof StreamInterface) {
-            return static::fromPsrStream($source);
+            return static::fromResource($source->detach());
         }
 
         $factory = self::getSourceFactory();
@@ -101,26 +101,6 @@ trait SourceFactoryTrait
         $factory = static::getSourceFactory();
 
         return $factory->createFromFile($pathname);
-    }
-
-    /**
-     * An alternative factory function of the {@see SourceFactoryInterface::createFromStream()} method.
-     *
-     * @param non-empty-string|null $pathname
-     *
-     * @return ($pathname is null ? ReadableInterface : FileInterface)
-     * @throws SourceExceptionInterface
-     *
-     * @deprecated since phplrt 3.4 and will be removed in 4.0, use {@see fromResource()} instead.
-     */
-    public static function fromPsrStream(StreamInterface $stream, string $pathname = null): ReadableInterface
-    {
-        trigger_deprecation('phplrt/source', '3.4', <<<'MSG'
-            Using "%s::fromPsrStream($stream)" with %s argument is deprecated,
-            use "%1$s::fromResource($stream->detach())" instead.
-            MSG, static::class, $stream::class);
-
-        return static::fromResource($stream->detach(), $pathname);
     }
 
     /**

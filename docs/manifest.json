@@ -17,8 +17,7 @@
     "Parser": {
         "Usage": "parser",
         "Abstract Syntax Tree": "parser/ast",
-        "Grammar Rules": "parser/rules",
-        "Builder": "parser/builder"
+        "Grammar Rules": "parser/rules"
     },
     "Compiler": {
         "Usage": "compiler",
