@@ -22,4 +22,13 @@ class CompatibilityTest extends TestCase
             public function parse($source): iterable {}
         };
     }
+
+    public function testParserWithMixedCompatibility(): void
+    {
+        self::expectNotToPerformAssertions();
+
+        new class () implements ParserInterface {
+            public function parse(mixed $source): iterable {}
+        };
+    }
 }

@@ -27,6 +27,18 @@ class CompatibilityTest extends TestCase
         };
     }
 
+    public function testVirtualFileWithMixedCompatibility(): void
+    {
+        self::expectNotToPerformAssertions();
+
+        new class () implements VirtualFileInterface {
+            public function getPathname(): string {}
+            public function getStream(): mixed {}
+            public function getContents(): string {}
+            public function getHash(): string {}
+        };
+    }
+
     public function testPreferContentReadingCompatibility(): void
     {
         self::expectNotToPerformAssertions();

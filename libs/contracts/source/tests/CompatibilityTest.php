@@ -30,12 +30,36 @@ class CompatibilityTest extends TestCase
         };
     }
 
+    public function testFileWithMixedCompatibility(): void
+    {
+        self::expectNotToPerformAssertions();
+
+        new class () implements FileInterface {
+            public function getPathname(): string {}
+
+            public function getStream(): mixed {}
+            public function getContents(): string {}
+            public function getHash(): string {}
+        };
+    }
+
     public function testReadableCompatibility(): void
     {
         self::expectNotToPerformAssertions();
 
         new class () implements ReadableInterface {
             public function getStream() {}
+            public function getContents(): string {}
+            public function getHash(): string {}
+        };
+    }
+
+    public function testReadableWithMixedCompatibility(): void
+    {
+        self::expectNotToPerformAssertions();
+
+        new class () implements ReadableInterface {
+            public function getStream(): mixed {}
             public function getContents(): string {}
             public function getHash(): string {}
         };
@@ -57,6 +81,18 @@ class CompatibilityTest extends TestCase
             public function createFromString(string $content = '', string $name = null): ReadableInterface {}
             public function createFromFile(string $filename): FileInterface {}
             public function createFromStream($stream, string $name = null): ReadableInterface {}
+        };
+    }
+
+    public function testSourceFactoryWithMixedCompatibility(): void
+    {
+        self::expectNotToPerformAssertions();
+
+        new class () implements SourceFactoryInterface {
+            public function create(mixed $source): ReadableInterface {}
+            public function createFromString(string $content = '', string $name = null): ReadableInterface {}
+            public function createFromFile(string $filename): FileInterface {}
+            public function createFromStream(mixed $stream, string $name = null): ReadableInterface {}
         };
     }
 }

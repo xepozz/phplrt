@@ -24,6 +24,15 @@ class CompatibilityTest extends TestCase
         };
     }
 
+    public function testLexerWithMixedCompatibility(): void
+    {
+        self::expectNotToPerformAssertions();
+
+        new class () implements LexerInterface {
+            public function lex(mixed $source): iterable {}
+        };
+    }
+
     public function testTokenCompatibility(): void
     {
         self::expectNotToPerformAssertions();
