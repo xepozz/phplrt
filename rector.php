@@ -6,6 +6,7 @@ use Rector\Config\RectorConfig;
 use Rector\DeadCode\Rector\For_\RemoveDeadLoopRector;
 use Rector\DeadCode\Rector\Node\RemoveNonExistingVarAnnotationRector;
 use Rector\Php74\Rector\Closure\ClosureToArrowFunctionRector;
+use Rector\Php80\Rector\Class_\ClassPropertyAssignToConstructorPromotionRector;
 use Rector\Php81\Rector\Property\ReadOnlyPropertyRector;
 use Rector\PHPUnit\Set\PHPUnitSetList;
 use Rector\Set\ValueObject\LevelSetList;
@@ -23,9 +24,10 @@ return static function (RectorConfig $config): void {
     ]);
 
     $config->skip([
-        ReadOnlyPropertyRector::class,
+        ClassPropertyAssignToConstructorPromotionRector::class,
         ClosureToArrowFunctionRector::class,
-        RemoveNonExistingVarAnnotationRector::class,
+        ReadOnlyPropertyRector::class,
         RemoveDeadLoopRector::class,
+        RemoveNonExistingVarAnnotationRector::class,
     ]);
 };

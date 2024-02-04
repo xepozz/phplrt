@@ -41,10 +41,7 @@ class Source extends Readable implements PreferContentReadingInterface
      *        used as a resource during the reading of the source.
      */
     public function __construct(
-        /**
-         * @psalm-readonly-allow-private-mutation
-         */
-        private string $content,
+        private readonly string $content,
         string $algo = SourceFactory::DEFAULT_HASH_ALGO,
         string $temp = SourceFactory::DEFAULT_TEMP_STREAM
     ) {

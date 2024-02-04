@@ -116,11 +116,11 @@ class Executor implements ExecutorInterface
 
     private bool $stop = false;
 
+    /**
+     * @param list<VisitorInterface> $visitors
+     */
     public function __construct(
-        /**
-         * @var array|VisitorInterface[]
-         */
-        private array $visitors = []
+        private readonly array $visitors = [],
     ) {}
 
     /**
