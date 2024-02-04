@@ -22,7 +22,7 @@ return static function (MBConfig $config): void {
 
     $config->dataToAppend([
         'require-dev' => [
-            'friendsofphp/php-cs-fixer' => '^3.30',
+            'friendsofphp/php-cs-fixer' => '^3.49',
             'phpunit/phpunit' => '^9.5.20',
             'rector/rector' => '^0.19',
             'symfony/var-dumper' => '^5.4|^6.0|^7.0',
