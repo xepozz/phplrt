@@ -14,18 +14,15 @@ class LineReaderTest extends TestCase
 {
     private const MAX_LINES_PER_TEST = 100;
 
-    public static function dataProvider(): array
+    public static function dataProvider(): \Iterator
     {
         $lines = [];
 
         foreach (\range(1, self::MAX_LINES_PER_TEST) as $line) {
             $lines[] = 'line-' . $line;
         }
-
-        return [
-            '\n'   => [self::create($lines, "\n"), self::MAX_LINES_PER_TEST],
-            '\r\n' => [self::create($lines, "\r\n"), self::MAX_LINES_PER_TEST],
-        ];
+        yield '\n' => [self::create($lines, "\n"), self::MAX_LINES_PER_TEST];
+        yield '\r\n' => [self::create($lines, "\r\n"), self::MAX_LINES_PER_TEST];
     }
 
     private static function create(array $lines, string $delimiter = "\n"): LineReader
@@ -58,19 +55,19 @@ class LineReaderTest extends TestCase
     #[DataProvider('dataProvider')]
     public function testReadLines(LineReader $reader): void
     {
-        $this->assertEquals(['line-1', 'line-2'], [...$reader->readLines(1, 2)]);
+        $this->assertSame(['line-1', 'line-2'], [...$reader->readLines(1, 2)]);
     }
 
     #[DataProvider('dataProvider')]
     public function testReadLinesInReverseOrder(LineReader $reader): void
     {
-        $this->assertEquals(['line-1', 'line-2'], [...$reader->readLines(2, 1)]);
+        $this->assertSame(['line-1', 'line-2'], [...$reader->readLines(2, 1)]);
     }
 
     #[DataProvider('dataProvider')]
     public function testReadLinesUnderflow(LineReader $reader): void
     {
-        $this->assertEquals(['line-1', 'line-2', 'line-3'], [...$reader->readLines(-1, 3)]);
+        $this->assertSame(['line-1', 'line-2', 'line-3'], [...$reader->readLines(-1, 3)]);
     }
 
     #[DataProvider('dataProvider')]

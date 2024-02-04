@@ -16,30 +16,28 @@ abstract class TestCase extends BaseTestCase
 {
     protected static int $bufferSize = 10;
 
-    public static function buffersDataProvider(): array
+    public static function buffersDataProvider(): \Iterator
     {
-        return [
-            'Generator' => [
-                static::create(
-                    self::createTokens(static::$bufferSize)
-                ),
-            ],
-            'array' => [
-                static::create([
-                    ...self::createTokens(static::$bufferSize)
-                ]),
-            ],
-            'IteratorIterator' => [
-                static::create(new \IteratorIterator(
-                    self::createTokens(static::$bufferSize)
-                )),
-            ],
-            'ArrayIterator' => [
-                static::create(new \ArrayIterator(
-                    [
-                    ...self::createTokens(static::$bufferSize)]
-                )),
-            ],
+        yield 'Generator' => [
+            static::create(
+                self::createTokens(static::$bufferSize)
+            ),
+        ];
+        yield 'array' => [
+            static::create([
+                ...self::createTokens(static::$bufferSize)
+            ]),
+        ];
+        yield 'IteratorIterator' => [
+            static::create(new \IteratorIterator(
+                self::createTokens(static::$bufferSize)
+            )),
+        ];
+        yield 'ArrayIterator' => [
+            static::create(new \ArrayIterator(
+                [
+                ...self::createTokens(static::$bufferSize)]
+            )),
         ];
     }
 
