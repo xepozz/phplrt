@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.5/phpunit.xsd"
          colors="true"
          backupGlobals="true"
          stopOnFailure="false"
@@ -11,11 +11,7 @@
 >
     <testsuites>
         <testsuite name="unit">
-            <directory>libs/*/tests/Unit</directory>
-            <directory>libs/contracts/*/tests</directory>
-        </testsuite>
-        <testsuite name="functional">
-            <directory>libs/*/tests/Functional</directory>
+            <directory>tests</directory>
         </testsuite>
     </testsuites>
 
@@ -23,13 +19,12 @@
 
     <source>
         <include>
-            <directory suffix=".php">libs/*/src</directory>
-            <directory suffix=".php">libs/contracts/*/src</directory>
+            <directory suffix=".php">src</directory>
         </include>
     </source>
 
     <php>
-        <ini name="error_reporting" value="-1" />
-        <ini name="memory_limit" value="-1" />
+        <ini name="error_reporting" value="-1"/>
+        <ini name="memory_limit" value="-1"/>
     </php>
 </phpunit>

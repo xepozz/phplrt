@@ -63,6 +63,12 @@
         "psr-4": {
             "Phplrt\\Buffer\\Tests\\": "libs/buffer/tests",
             "Phplrt\\Compiler\\Tests\\": "libs/compiler/tests",
+            "Phplrt\\Contracts\\Ast\\Tests\\": "libs/contracts/ast/tests",
+            "Phplrt\\Contracts\\Exception\\Tests\\": "libs/contracts/exception/tests",
+            "Phplrt\\Contracts\\Lexer\\Tests\\": "libs/contracts/lexer/tests",
+            "Phplrt\\Contracts\\Parser\\Tests\\": "libs/contracts/parser/tests",
+            "Phplrt\\Contracts\\Position\\Tests\\": "libs/contracts/position/tests",
+            "Phplrt\\Contracts\\Source\\Tests\\": "libs/contracts/source/tests",
             "Phplrt\\Exception\\Tests\\": "libs/exception/tests",
             "Phplrt\\Lexer\\Tests\\": "libs/lexer/tests",
             "Phplrt\\Parser\\Tests\\": "libs/parser/tests",
