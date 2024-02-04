@@ -1,12 +1,8 @@
 <?php
 
 $files = PhpCsFixer\Finder::create()
-    ->in([
-        __DIR__ . '/libs',
-    ])
-    ->exclude([
-        __DIR__ . '/libs/compiler/src/Grammar',
-    ])
+    ->in([__DIR__ . '/libs'])
+    ->exclude([__DIR__ . '/libs/compiler/src/Grammar'])
 ;
 
 return (new PhpCsFixer\Config())
