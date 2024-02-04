@@ -35,7 +35,8 @@ abstract class TestCase extends BaseTestCase
                 )),
             ],
             'ArrayIterator' => [
-                static::create(new \ArrayIterator([
+                static::create(new \ArrayIterator(
+                    [
                     ...self::createTokens(static::$bufferSize)]
                 )),
             ],
@@ -47,7 +48,7 @@ abstract class TestCase extends BaseTestCase
     private static function createTokens(int $count): \Generator
     {
         for ($i = 0; $i < $count; ++$i) {
-            yield new Token((string)$i, 'Value#' . $i, $i);
+            yield new Token((string) $i, 'Value#' . $i, $i);
         }
     }
 
