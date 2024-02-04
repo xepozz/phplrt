@@ -18,7 +18,7 @@ class CompatibilityTest extends TestCase
     {
         self::expectNotToPerformAssertions();
 
-        new class implements NodeInterface {
+        new class () implements NodeInterface {
             public function getIterator(): \Traversable {}
         };
     }

@@ -19,7 +19,7 @@ class CompatibilityTest extends TestCase
     {
         self::expectNotToPerformAssertions();
 
-        new class implements VirtualFileInterface {
+        new class () implements VirtualFileInterface {
             public function getPathname(): string {}
             public function getStream() {}
             public function getContents(): string {}
@@ -31,6 +31,6 @@ class CompatibilityTest extends TestCase
     {
         self::expectNotToPerformAssertions();
 
-        new class implements PreferContentReadingInterface {};
+        new class () implements PreferContentReadingInterface {};
     }
 }

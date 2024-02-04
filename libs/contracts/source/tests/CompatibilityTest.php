@@ -21,7 +21,7 @@ class CompatibilityTest extends TestCase
     {
         self::expectNotToPerformAssertions();
 
-        new class implements FileInterface {
+        new class () implements FileInterface {
             public function getPathname(): string {}
 
             public function getStream() {}
@@ -34,7 +34,7 @@ class CompatibilityTest extends TestCase
     {
         self::expectNotToPerformAssertions();
 
-        new class implements ReadableInterface {
+        new class () implements ReadableInterface {
             public function getStream() {}
             public function getContents(): string {}
             public function getHash(): string {}
@@ -45,14 +45,14 @@ class CompatibilityTest extends TestCase
     {
         self::expectNotToPerformAssertions();
 
-        new class extends \Exception implements SourceExceptionInterface {};
+        new class () extends \Exception implements SourceExceptionInterface {};
     }
 
     public function testSourceFactoryCompatibility(): void
     {
         self::expectNotToPerformAssertions();
 
-        new class implements SourceFactoryInterface {
+        new class () implements SourceFactoryInterface {
             public function create($source): ReadableInterface {}
             public function createFromString(string $content = '', string $name = null): ReadableInterface {}
             public function createFromFile(string $filename): FileInterface {}

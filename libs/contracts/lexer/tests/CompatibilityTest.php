@@ -19,7 +19,7 @@ class CompatibilityTest extends TestCase
     {
         self::expectNotToPerformAssertions();
 
-        new class implements LexerInterface {
+        new class () implements LexerInterface {
             public function lex($source): iterable {}
         };
     }
@@ -28,7 +28,7 @@ class CompatibilityTest extends TestCase
     {
         self::expectNotToPerformAssertions();
 
-        new class implements TokenInterface {
+        new class () implements TokenInterface {
             public function getName(): string {}
             public function getOffset(): int {}
             public function getValue(): string {}

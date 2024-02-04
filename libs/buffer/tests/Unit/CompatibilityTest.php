@@ -20,7 +20,7 @@ class CompatibilityTest extends TestCase
     {
         self::expectNotToPerformAssertions();
 
-        new class implements BufferInterface {
+        new class () implements BufferInterface {
             public function seek($offset): void {}
             public function current(): TokenInterface {}
             public function key(): int {}
@@ -34,7 +34,7 @@ class CompatibilityTest extends TestCase
     {
         self::expectNotToPerformAssertions();
 
-        new class implements FactoryInterface {
+        new class () implements FactoryInterface {
             public function create(iterable $tokens, ?int $size = null): BufferInterface {}
         };
     }

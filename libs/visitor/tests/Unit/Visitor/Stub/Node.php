@@ -18,9 +18,7 @@ class Node implements NodeInterface
          * @var array<NodeInterface>
          */
         public array $children = []
-    )
-    {
-    }
+    ) {}
 
     public function getId(): int
     {

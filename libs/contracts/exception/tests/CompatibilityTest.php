@@ -20,7 +20,7 @@ class CompatibilityTest extends TestCase
     {
         self::expectNotToPerformAssertions();
 
-        new class extends \Exception implements RuntimeExceptionInterface {
+        new class () extends \Exception implements RuntimeExceptionInterface {
             public function getToken(): TokenInterface {}
             public function getSource(): ReadableInterface {}
         };

@@ -21,7 +21,7 @@ class CompatibilityTest extends TestCase
     {
         self::expectNotToPerformAssertions();
 
-        new class implements ExecutorInterface {
+        new class () implements ExecutorInterface {
             public function execute(iterable $nodes): iterable {}
         };
     }
@@ -30,7 +30,7 @@ class CompatibilityTest extends TestCase
     {
         self::expectNotToPerformAssertions();
 
-        new class implements TraverserInterface {
+        new class () implements TraverserInterface {
             public function with(VisitorInterface $visitor, bool $prepend = false): TraverserInterface {}
             public function without(VisitorInterface $visitor): TraverserInterface {}
             public function traverse(iterable $nodes): iterable {}
@@ -41,7 +41,7 @@ class CompatibilityTest extends TestCase
     {
         self::expectNotToPerformAssertions();
 
-        new class implements VisitorInterface {
+        new class () implements VisitorInterface {
             public function before(iterable $nodes): ?iterable {}
             public function enter(NodeInterface $node) {}
             public function leave(NodeInterface $node) {}

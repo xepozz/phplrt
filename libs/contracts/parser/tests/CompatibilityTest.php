@@ -18,7 +18,7 @@ class CompatibilityTest extends TestCase
     {
         self::expectNotToPerformAssertions();
 
-        new class implements ParserInterface {
+        new class () implements ParserInterface {
             public function parse($source): iterable {}
         };
     }

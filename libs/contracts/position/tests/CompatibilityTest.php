@@ -20,7 +20,7 @@ class CompatibilityTest extends TestCase
     {
         self::expectNotToPerformAssertions();
 
-        new class implements PositionFactoryInterface {
+        new class () implements PositionFactoryInterface {
             public function createAtStarting(): PositionInterface {}
             public function createAtEnding(ReadableInterface $source): PositionInterface {}
             public function createFromOffset(
@@ -39,7 +39,7 @@ class CompatibilityTest extends TestCase
     {
         self::expectNotToPerformAssertions();
 
-        new class implements PositionInterface {
+        new class () implements PositionInterface {
             public function getOffset(): int {}
             public function getLine(): int {}
             public function getColumn(): int {}
