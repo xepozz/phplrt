@@ -8,19 +8,17 @@ use Phplrt\Visitor\Tests\Unit\Stub\Node;
 use Phplrt\Visitor\Tests\Unit\TestCase;
 use Phplrt\Visitor\Visitor;
 use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\TestDox;
 use PHPUnit\Framework\ExpectationFailedException;
 
-/**
- * @testdox A set of tests that verify an AST modification using the Visitor::before() method.
- */
 #[Group('phplrt/visitor'), Group('unit')]
+#[TestDox('A set of tests that verify an AST modification using the Visitor::before() method.')]
 class BeforeTraversingMutationsTest extends TestCase
 {
     /**
-     * @testdox Modifying a collection of AST nodes using array return
-     *
      * @throws ExpectationFailedException
      */
+    #[TestDox('Modifying a collection of AST nodes using array return')]
     public function testUpdateRootsByArrayWhenEntering(): void
     {
         $actual = $this->traverse($original = $this->nodes(2), new class () extends Visitor {
@@ -35,10 +33,9 @@ class BeforeTraversingMutationsTest extends TestCase
     }
 
     /**
-     * @testdox Modifying an AST node using array return
-     *
      * @throws ExpectationFailedException
      */
+    #[TestDox('Modifying an AST node using array return')]
     public function testUpdateRootByArrayWhenEntering(): void
     {
         $actual = $this->traverse($original = $this->node(), new class () extends Visitor {
@@ -53,10 +50,9 @@ class BeforeTraversingMutationsTest extends TestCase
     }
 
     /**
-     * @testdox Modifying a collection of AST nodes using a new node object return
-     *
      * @throws ExpectationFailedException
      */
+    #[TestDox('Modifying a collection of AST nodes using a new node object return')]
     public function testUpdateRootsByNodeWhenEntering(): void
     {
         $actual = $this->traverse($original = $this->nodes(2), new class () extends Visitor {
@@ -71,10 +67,9 @@ class BeforeTraversingMutationsTest extends TestCase
     }
 
     /**
-     * @testdox Modifying an AST node using a new node object return
-     *
      * @throws ExpectationFailedException
      */
+    #[TestDox('Modifying an AST node using a new node object return')]
     public function testUpdateRootByNodeWhenEntering(): void
     {
         $actual = $this->traverse($original = $this->node(), new class () extends Visitor {

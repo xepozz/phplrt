@@ -7,19 +7,17 @@ namespace Phplrt\Visitor\Tests\Unit;
 use Phplrt\Visitor\Tests\Unit\Stub\Counter;
 use Phplrt\Visitor\Traverser;
 use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\TestDox;
 use PHPUnit\Framework\ExpectationFailedException;
 
-/**
- * @testdox A set of tests that check the interaction of Visitor instances with the Traversable container.
- */
 #[Group('phplrt/visitor'), Group('unit')]
+#[TestDox('A set of tests that check the interaction of Visitor instances with the Traversable container.')]
 class VisitorsTest extends TestCase
 {
     /**
-     * @testdox Check that the visitor worked if added
-     *
      * @throws ExpectationFailedException
      */
+    #[TestDox('Check that the visitor worked if added')]
     public function testVisitorAppending(): void
     {
         (new Traverser())
@@ -30,10 +28,9 @@ class VisitorsTest extends TestCase
     }
 
     /**
-     * @testdox Check that the several visitor worked if added
-     *
      * @throws ExpectationFailedException
      */
+    #[TestDox('Check that the several visitor worked if added')]
     public function testVisitorsAppending(): void
     {
         (new Traverser())
@@ -46,10 +43,9 @@ class VisitorsTest extends TestCase
     }
 
     /**
-     * @testdox Check that the several visitor is ignored if deleted
-     *
      * @throws ExpectationFailedException
      */
+    #[TestDox('Check that the several visitor is ignored if deleted')]
     public function testVisitorsRemoving(): void
     {
         (new Traverser())
