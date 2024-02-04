@@ -14,15 +14,7 @@ final class Interval implements IntervalInterface
 {
     use IntervalFactoryTrait;
 
-    private PositionInterface $from;
-
-    private PositionInterface $to;
-
-    public function __construct(PositionInterface $from, PositionInterface $to)
-    {
-        $this->from = $from;
-        $this->to = $to;
-    }
+    public function __construct(private PositionInterface $from, private PositionInterface $to) {}
 
     public function getFrom(): PositionInterface
     {

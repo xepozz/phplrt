@@ -75,22 +75,13 @@ final class SourceFactory implements SourceFactoryInterface
 
     public function create($source): ReadableInterface
     {
-        switch (true) {
-            case $source instanceof ReadableInterface:
-                return $source;
-
-            case $source instanceof \SplFileInfo:
-                return $this->createFromFile($source->getPathname());
-
-            case \is_string($source):
-                return $this->createFromString($source);
-
-            case \is_resource($source):
-                return $this->createFromStream($source);
-
-            default:
-                throw NotCreatableException::fromInvalidType($source);
-        }
+        return match (true) {
+            $source instanceof ReadableInterface => $source,
+            $source instanceof \SplFileInfo => $this->createFromFile($source->getPathname()),
+            \is_string($source) => $this->createFromString($source),
+            \is_resource($source) => $this->createFromStream($source),
+            default => throw NotCreatableException::fromInvalidType($source),
+        };
     }
 
     public function createFromString(string $content = '', string $name = null): ReadableInterface

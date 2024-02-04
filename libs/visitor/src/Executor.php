@@ -114,17 +114,14 @@ class Executor implements ExecutorInterface
     private const ERROR_NESTED_ARRAY =
         'Nested arrays are not a valid traversable AST structure';
 
-    /**
-     * @var array|VisitorInterface[]
-     */
-    private array $visitors = [];
-
     private bool $stop = false;
 
-    public function __construct(array $visitors = [])
-    {
-        $this->visitors = $visitors;
-    }
+    public function __construct(
+        /**
+         * @var array|VisitorInterface[]
+         */
+        private array $visitors = []
+    ) {}
 
     /**
      * @param iterable<array-key, object> $nodes
@@ -226,13 +223,13 @@ class Executor implements ExecutorInterface
 
                         case \is_array($return):
                             $error = self::ERROR_ENTER_RETURN_ARRAY;
-                            $error = \sprintf($error, \get_class($visitor), \gettype($visitor));
+                            $error = \sprintf($error, $visitor::class, \gettype($visitor));
 
                             throw new BadMethodException($error, static::ERROR_CODE_ARRAY_ENTERING);
 
                         default:
                             $error = self::ERROR_ENTER_RETURN_TYPE;
-                            $error = \sprintf($error, \get_class($visitor), \gettype($visitor));
+                            $error = \sprintf($error, $visitor::class, \gettype($visitor));
 
                             throw new BadReturnTypeException($error, static::ERROR_CODE_ARRAY_ENTERING);
                     }
@@ -271,7 +268,7 @@ class Executor implements ExecutorInterface
 
                         default:
                             $error = self::ERROR_LEAVE_RETURN_TYPE;
-                            $error = \sprintf($error, \get_class($visitor), \gettype($return));
+                            $error = \sprintf($error, $visitor::class, \gettype($return));
 
                             throw new BadReturnTypeException($error, static::ERROR_CODE_ARRAY_LEAVING);
                     }
@@ -337,7 +334,7 @@ class Executor implements ExecutorInterface
 
                             default:
                                 $error = self::ERROR_ENTER_RETURN_TYPE;
-                                $error = \sprintf($error, \get_class($visitor), \gettype($return));
+                                $error = \sprintf($error, $visitor::class, \gettype($return));
 
                                 throw new BadReturnTypeException($error, static::ERROR_CODE_NODE_ENTERING);
                         }
@@ -372,13 +369,13 @@ class Executor implements ExecutorInterface
 
                             case \is_array($return):
                                 $error = self::ERROR_MODIFY_BY_ARRAY;
-                                $error = \sprintf($error, \get_class($visitor));
+                                $error = \sprintf($error, $visitor::class);
 
                                 throw new BadReturnTypeException($error, static::ERROR_CODE_NODE_LEAVING);
 
                             default:
                                 $error = self::ERROR_LEAVE_RETURN_TYPE;
-                                $error = \sprintf($error, \get_class($visitor), \gettype($return));
+                                $error = \sprintf($error, $visitor::class, \gettype($return));
 
                                 throw new BadReturnTypeException($error, static::ERROR_CODE_NODE_LEAVING);
                         }
@@ -396,19 +393,18 @@ class Executor implements ExecutorInterface
 
     /**
      * @param string|int $key
-     * @param mixed $value
      */
-    private function updateNodeValue(NodeInterface $node, $key, $value): void
+    private function updateNodeValue(NodeInterface $node, int|string $key, mixed $value): void
     {
         try {
             $node->$key = $value;
         } catch (\Error $e) {
-            if (\strpos($e->getMessage(), 'Cannot access') !== 0) {
+            if (!str_starts_with($e->getMessage(), 'Cannot access')) {
                 throw $e;
             }
 
             $error = self::ERROR_READONLY_MODIFY;
-            $error = \sprintf($error, $key, \get_class($node));
+            $error = \sprintf($error, $key, $node::class);
 
             throw new AttributeException($error);
         }
