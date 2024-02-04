@@ -12,17 +12,14 @@ use Phplrt\Contracts\Ast\NodeInterface;
  */
 class Node implements NodeInterface
 {
-    /**
-     * @var array<NodeInterface>
-     */
-    public array $children;
-
-    private int $id;
-
-    public function __construct(int $id, array $children = [])
+    public function __construct(
+        private int $id,
+        /**
+         * @var array<NodeInterface>
+         */
+        public array $children = []
+    )
     {
-        $this->id = $id;
-        $this->children = $children;
     }
 
     public function getId(): int
