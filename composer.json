@@ -24,11 +24,11 @@
         "symfony/deprecation-contracts": "^2.5|^3.0"
     },
     "provide": {
-        "phplrt/exception-contracts-implementation": "^3.4",
-        "phplrt/lexer-contracts-implementation": "^3.4",
-        "phplrt/parser-contracts-implementation": "^3.4",
-        "phplrt/position-contracts-implementation": "^3.4",
-        "phplrt/source-contracts-implementation": "^3.4"
+        "phplrt/exception-contracts-implementation": "^4.0",
+        "phplrt/lexer-contracts-implementation": "^4.0",
+        "phplrt/parser-contracts-implementation": "^4.0",
+        "phplrt/position-contracts-implementation": "^4.0",
+        "phplrt/source-contracts-implementation": "^4.0"
     },
     "autoload": {
         "files": [
@@ -115,8 +115,8 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "3.x-dev",
-            "dev-main": "3.x-dev"
+            "dev-master": "4.x-dev",
+            "dev-main": "4.x-dev"
         }
     },
     "config": {

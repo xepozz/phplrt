@@ -21,9 +21,9 @@
         "ext-pcre": "*",
         "ext-json": "*",
         "ext-mbstring": "*",
-        "phplrt/source": "^3.4",
-        "phplrt/position": "^3.4",
-        "phplrt/exception-contracts": "^3.4"
+        "phplrt/source": "^4.0",
+        "phplrt/position": "^4.0",
+        "phplrt/exception-contracts": "^4.0"
     },
     "autoload": {
         "psr-4": {
@@ -40,12 +40,12 @@
         }
     },
     "provide": {
-        "phplrt/exception-contracts-implementation": "^3.4"
+        "phplrt/exception-contracts-implementation": "^4.0"
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "3.x-dev",
-            "dev-main": "3.x-dev"
+            "dev-master": "4.x-dev",
+            "dev-main": "4.x-dev"
         }
     },
     "config": {
