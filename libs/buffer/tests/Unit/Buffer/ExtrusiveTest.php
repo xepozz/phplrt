@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Phplrt\Buffer\Tests\Unit;
+namespace Phplrt\Buffer\Tests\Unit\Buffer;
 
 use Phplrt\Buffer\BufferInterface;
 use Phplrt\Buffer\ExtrusiveBuffer;

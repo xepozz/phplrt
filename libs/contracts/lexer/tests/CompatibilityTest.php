@@ -8,6 +8,10 @@ use Phplrt\Contracts\Lexer\LexerInterface;
 use Phplrt\Contracts\Lexer\TokenInterface;
 use PHPUnit\Framework\Attributes\Group;
 
+/**
+ * Note: Changing the behavior of these tests is allowed ONLY when updating
+ *       a MAJOR version of the package.
+ */
 #[Group('phplrt/lexer-contracts')]
 class CompatibilityTest extends TestCase
 {

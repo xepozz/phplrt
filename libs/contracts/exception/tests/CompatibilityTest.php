@@ -9,6 +9,10 @@ use Phplrt\Contracts\Lexer\TokenInterface;
 use Phplrt\Contracts\Source\ReadableInterface;
 use PHPUnit\Framework\Attributes\Group;
 
+/**
+ * Note: Changing the behavior of these tests is allowed ONLY when updating
+ *       a MAJOR version of the package.
+ */
 #[Group('phplrt/exception-contracts')]
 class CompatibilityTest extends TestCase
 {

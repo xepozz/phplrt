@@ -10,6 +10,10 @@ use Phplrt\Contracts\Source\SourceExceptionInterface;
 use Phplrt\Contracts\Source\SourceFactoryInterface;
 use PHPUnit\Framework\Attributes\Group;
 
+/**
+ * Note: Changing the behavior of these tests is allowed ONLY when updating
+ *       a MAJOR version of the package.
+ */
 #[Group('phplrt/source-contracts')]
 class CompatibilityTest extends TestCase
 {

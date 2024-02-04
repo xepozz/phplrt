@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Phplrt\Visitor\Tests\Unit;
+namespace Phplrt\Visitor\Tests\Unit\Visitor;
 
-use Phplrt\Visitor\Tests\Unit\Stub\Counter;
+use Phplrt\Visitor\Tests\Unit\Visitor\Stub\Counter;
 use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\TestDox;
 use PHPUnit\Framework\ExpectationFailedException;

@@ -2,31 +2,29 @@
 
 declare(strict_types=1);
 
-namespace Phplrt\Visitor\Tests\Unit\Mutations;
+namespace Phplrt\Visitor\Tests\Unit\Visitor\Mutations;
 
-use Phplrt\Contracts\Ast\NodeInterface;
-use Phplrt\Visitor\Exception\BadMethodException;
-use Phplrt\Visitor\Tests\Unit\Stub\Node;
-use Phplrt\Visitor\Tests\Unit\TestCase;
+use Phplrt\Visitor\Tests\Unit\Visitor\Stub\Node;
+use Phplrt\Visitor\Tests\Unit\Visitor\TestCase;
 use Phplrt\Visitor\Visitor;
 use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\TestDox;
 use PHPUnit\Framework\ExpectationFailedException;
 
 #[Group('phplrt/visitor'), Group('unit')]
-#[TestDox('A set of tests that verify an AST modification using the Visitor::leave() method.')]
-class LeavingMutationsTest extends TestCase
+#[TestDox('A set of tests that verify an AST modification using the Visitor::before() method.')]
+class BeforeTraversingMutationsTest extends TestCase
 {
     /**
      * @throws ExpectationFailedException
      */
     #[TestDox('Modifying a collection of AST nodes using array return')]
-    public function testUpdateRootsByArrayWhenLeaving(): void
+    public function testUpdateRootsByArrayWhenEntering(): void
     {
         $actual = $this->traverse($original = $this->nodes(2), new class () extends Visitor {
-            public function leave(NodeInterface $node)
+            public function before(iterable $nodes): ?iterable
             {
-                return $node instanceof Node && $node->getId() === 0 ? [] : $node;
+                return \is_array($nodes) ? [] : null;
             }
         });
 
@@ -34,33 +32,37 @@ class LeavingMutationsTest extends TestCase
         $this->assertNotSame($original, $actual);
     }
 
+    /**
+     * @throws ExpectationFailedException
+     */
     #[TestDox('Modifying an AST node using array return')]
-    public function testUpdateRootByArrayWhenLeaving(): void
+    public function testUpdateRootByArrayWhenEntering(): void
     {
-        $this->expectException(BadMethodException::class);
-
-        $this->traverse($original = $this->node(), new class () extends Visitor {
-            public function leave(NodeInterface $node)
+        $actual = $this->traverse($original = $this->node(), new class () extends Visitor {
+            public function before(iterable $nodes): ?iterable
             {
-                return $node instanceof Node && $node->getId() === 0 ? [] : $node;
+                return $nodes instanceof Node && $nodes->getId() === 0 ? [] : $nodes;
             }
         });
+
+        $this->assertSame([], $actual);
+        $this->assertNotSame($original, $actual);
     }
 
     /**
      * @throws ExpectationFailedException
      */
     #[TestDox('Modifying a collection of AST nodes using a new node object return')]
-    public function testUpdateRootsByNodeWhenLeaving(): void
+    public function testUpdateRootsByNodeWhenEntering(): void
     {
         $actual = $this->traverse($original = $this->nodes(2), new class () extends Visitor {
-            public function leave(NodeInterface $node)
+            public function before(iterable $nodes): ?iterable
             {
-                return $node instanceof Node && $node->getId() === 0 ? new Node(42) : $node;
+                return \is_array($nodes) ? new Node(42) : null;
             }
         });
 
-        $this->assertEquals([new Node(42), new Node(42)], $actual);
+        $this->assertEquals(new Node(42), $actual);
         $this->assertNotSame($original, $actual);
     }
 
@@ -68,12 +70,12 @@ class LeavingMutationsTest extends TestCase
      * @throws ExpectationFailedException
      */
     #[TestDox('Modifying an AST node using a new node object return')]
-    public function testUpdateRootByNodeWhenLeaving(): void
+    public function testUpdateRootByNodeWhenEntering(): void
     {
         $actual = $this->traverse($original = $this->node(), new class () extends Visitor {
-            public function leave(NodeInterface $node)
+            public function before(iterable $nodes): ?iterable
             {
-                return $node instanceof Node && $node->getId() === 0 ? new Node(42) : $node;
+                return $nodes instanceof Node && $nodes->getId() === 0 ? new Node(42) : $nodes;
             }
         });
 

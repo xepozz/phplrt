@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Phplrt\Visitor\Tests\Unit\Stub;
+namespace Phplrt\Visitor\Tests\Unit\Visitor\Stub;
 
 use Phplrt\Contracts\Ast\NodeInterface;
 use Phplrt\Visitor\VisitorInterface;

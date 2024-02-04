@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Phplrt\Visitor\Tests\Unit\Mutations;
+namespace Phplrt\Visitor\Tests\Unit\Visitor\Mutations;
 
-use Phplrt\Visitor\Tests\Unit\Stub\Node;
-use Phplrt\Visitor\Tests\Unit\TestCase;
+use Phplrt\Visitor\Tests\Unit\Visitor\Stub\Node;
+use Phplrt\Visitor\Tests\Unit\Visitor\TestCase;
 use Phplrt\Visitor\Visitor;
 use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\TestDox;

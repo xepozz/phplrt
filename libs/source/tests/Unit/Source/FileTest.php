@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Phplrt\Source\Tests\Unit;
+namespace Phplrt\Source\Tests\Unit\Source;
 
 use Phplrt\Contracts\Source\FileInterface;
 use Phplrt\Contracts\Source\ReadableInterface;
