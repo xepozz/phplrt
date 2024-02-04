@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Phplrt\Compiler\Tests\Unit;
+namespace Phplrt\Compiler\Tests\Functional;
 
 use Phplrt\Compiler\Compiler;
 use Phplrt\Parser\Parser;
 use PHPUnit\Framework\Attributes\Group;
 
-#[Group('phplrt/compiler'), Group('unit')]
+#[Group('phplrt/compiler'), Group('functional')]
 class CodeGeneratorTest extends TestCase
 {
     public function testOutput(): void

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Phplrt\Lexer\Tests\Unit;
+namespace Phplrt\Lexer\Tests\Functional;
 
 use Phplrt\Contracts\Exception\RuntimeExceptionInterface;
 use Phplrt\Lexer\Lexer;
@@ -10,7 +10,7 @@ use Phplrt\Lexer\Token\EndOfInput;
 use Phplrt\Lexer\Token\Token;
 use PHPUnit\Framework\Attributes\Group;
 
-#[Group('phplrt/lexer'), Group('unit')]
+#[Group('phplrt/lexer'), Group('functional')]
 class SimpleLexerTest extends TestCase
 {
     /**

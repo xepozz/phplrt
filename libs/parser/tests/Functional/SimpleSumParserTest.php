@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Phplrt\Parser\Tests\Unit;
+namespace Phplrt\Parser\Tests\Functional;
 
 use Phplrt\Lexer\Lexer;
 use Phplrt\Lexer\Token\Token;
@@ -12,10 +12,10 @@ use Phplrt\Parser\Grammar\Concatenation;
 use Phplrt\Parser\Grammar\Lexeme;
 use Phplrt\Parser\Grammar\Repetition;
 use Phplrt\Parser\Parser;
-use Phplrt\Parser\Tests\Unit\Stub\AstNode;
+use Phplrt\Parser\Tests\Functional\Stub\AstNode;
 use PHPUnit\Framework\Attributes\Group;
 
-#[Group('phplrt/parser'), Group('unit')]
+#[Group('phplrt/parser'), Group('functional')]
 class SimpleSumParserTest extends TestCase implements BuilderInterface
 {
     public function build(Context $context, $result)

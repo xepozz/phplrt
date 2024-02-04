@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Phplrt\Parser\Tests\Unit;
+namespace Phplrt\Parser\Tests\Functional;
 
 use Phplrt\Parser\Grammar\Builder;
 use Phplrt\Parser\Grammar\Concatenation;
 use Phplrt\Parser\Grammar\Lexeme;
 use Phplrt\Parser\Grammar\Repetition;
 use Phplrt\Parser\Tests\TestCase;
-use Phplrt\Parser\Tests\Unit\Stub\Rule;
+use Phplrt\Parser\Tests\Functional\Stub\Rule;
 use PHPUnit\Framework\Attributes\Group;
 
-#[Group('phplrt/parser'), Group('unit')]
+#[Group('phplrt/parser'), Group('functional')]
 class GrammarGeneratorTest extends TestCase
 {
     public function testNamedRuleReturnsName(): void

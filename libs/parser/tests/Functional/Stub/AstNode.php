@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Phplrt\Parser\Tests\Unit\Stub;
+namespace Phplrt\Parser\Tests\Functional\Stub;
 
 use Phplrt\Contracts\Ast\NodeInterface;
 

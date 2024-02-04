@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Phplrt\Lexer\Tests\Unit;
+namespace Phplrt\Lexer\Tests\Functional;
 
 use Phplrt\Contracts\Lexer\TokenInterface;
 use Phplrt\Lexer\Tests\TestCase as BaseTestCase;
 use PHPUnit\Framework\Attributes\Group;
 
-#[Group('phplrt/lexer'), Group('unit')]
+#[Group('phplrt/lexer'), Group('functional')]
 abstract class TestCase extends BaseTestCase
 {
     /**

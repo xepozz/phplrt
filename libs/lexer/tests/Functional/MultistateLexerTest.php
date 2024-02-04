@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Phplrt\Lexer\Tests\Unit;
+namespace Phplrt\Lexer\Tests\Functional;
 
 use Phplrt\Contracts\Exception\RuntimeExceptionInterface;
 use Phplrt\Contracts\Lexer\TokenInterface;
@@ -11,7 +11,7 @@ use Phplrt\Lexer\Lexer;
 use Phplrt\Lexer\Multistate;
 use PHPUnit\Framework\Attributes\Group;
 
-#[Group('phplrt/lexer'), Group('unit')]
+#[Group('phplrt/lexer'), Group('functional')]
 class MultistateLexerTest extends TestCase
 {
     /**

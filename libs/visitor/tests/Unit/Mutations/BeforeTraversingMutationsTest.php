@@ -24,9 +24,9 @@ class BeforeTraversingMutationsTest extends TestCase
     public function testUpdateRootsByArrayWhenEntering(): void
     {
         $actual = $this->traverse($original = $this->nodes(2), new class () extends Visitor {
-            public function before(iterable $node): ?iterable
+            public function before(iterable $nodes): ?iterable
             {
-                return \is_array($node) ? [] : null;
+                return \is_array($nodes) ? [] : null;
             }
         });
 
@@ -42,9 +42,9 @@ class BeforeTraversingMutationsTest extends TestCase
     public function testUpdateRootByArrayWhenEntering(): void
     {
         $actual = $this->traverse($original = $this->node(), new class () extends Visitor {
-            public function before(iterable $node): ?iterable
+            public function before(iterable $nodes): ?iterable
             {
-                return $node instanceof Node && $node->getId() === 0 ? [] : $node;
+                return $nodes instanceof Node && $nodes->getId() === 0 ? [] : $nodes;
             }
         });
 
@@ -60,9 +60,9 @@ class BeforeTraversingMutationsTest extends TestCase
     public function testUpdateRootsByNodeWhenEntering(): void
     {
         $actual = $this->traverse($original = $this->nodes(2), new class () extends Visitor {
-            public function before(iterable $node): ?iterable
+            public function before(iterable $nodes): ?iterable
             {
-                return \is_array($node) ? new Node(42) : null;
+                return \is_array($nodes) ? new Node(42) : null;
             }
         });
 
@@ -78,9 +78,9 @@ class BeforeTraversingMutationsTest extends TestCase
     public function testUpdateRootByNodeWhenEntering(): void
     {
         $actual = $this->traverse($original = $this->node(), new class () extends Visitor {
-            public function before(iterable $node): ?iterable
+            public function before(iterable $nodes): ?iterable
             {
-                return $node instanceof Node && $node->getId() === 0 ? new Node(42) : $node;
+                return $nodes instanceof Node && $nodes->getId() === 0 ? new Node(42) : $nodes;
             }
         });
 
