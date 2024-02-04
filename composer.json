@@ -62,7 +62,7 @@
         "rector/rector": "^0.19",
         "symfony/var-dumper": "^5.4|^6.0|^7.0",
         "symplify/monorepo-builder": "^11.2",
-        "vimeo/psalm": "^5.15"
+        "vimeo/psalm": "^5.21"
     },
     "autoload-dev": {
         "psr-4": {
@@ -97,21 +97,18 @@
         "phplrt/visitor": "*"
     },
     "scripts": {
-        "test": [
-            "@phpunit",
-            "@psalm",
-            "@phpcs",
-            "@rector"
-        ],
-        "psalm": "psalm --no-cache",
-        "phpunit": "phpunit",
+        "test": ["@test:unit"],
+        "test:unit": "phpunit --testdox",
+        "linter": "@linter:check",
+        "linter:check": "psalm --no-cache",
+        "linter:fix": "psalm --no-cache --alter",
         "phpcs": "@phpcs:check",
-        "phpcs:check": "php-cs-fixer fix --config=.php-cs-fixer.php --allow-risky=yes --dry-run",
-        "phpcs:fix": "php-cs-fixer fix --config=.php-cs-fixer.php --allow-risky=yes",
+        "phpcs:check": "php-cs-fixer fix --config=.php-cs-fixer.php --allow-risky=yes --dry-run --verbose --diff",
+        "phpcs:fix": "php-cs-fixer fix --config=.php-cs-fixer.php --allow-risky=yes --verbose --diff",
         "rector": "@rector:check",
-        "rector:check": "rector --config=rector.php --dry-run",
+        "rector:check": "rector --dry-run --config=rector.php",
         "rector:fix": "rector --config=rector.php",
-        "merge": "monorepo-builder merge"
+        "dev:merge": "monorepo-builder merge"
     },
     "extra": {
         "branch-alias": {

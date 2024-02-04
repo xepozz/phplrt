@@ -27,7 +27,7 @@ return static function (MBConfig $config): void {
             'rector/rector' => '^0.19',
             'symfony/var-dumper' => '^5.4|^6.0|^7.0',
             'symplify/monorepo-builder' => '^11.2',
-            'vimeo/psalm' => '^5.15'
+            'vimeo/psalm' => '^5.21'
         ],
     ]);
 
