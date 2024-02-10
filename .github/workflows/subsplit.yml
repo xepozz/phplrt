@@ -18,10 +18,6 @@ jobs:
           # Kernel Libraries
           - local_path: 'compiler'
             split_repository: 'compiler'
-          - local_path: 'buffer'
-            split_repository: 'buffer'
-          - local_path: 'exception'
-            split_repository: 'exception'
           - local_path: 'lexer'
             split_repository: 'lexer'
           - local_path: 'parser'
@@ -35,8 +31,6 @@ jobs:
           # Contracts
           - local_path: 'contracts/ast'
             split_repository: 'ast-contracts'
-          - local_path: 'contracts/exception'
-            split_repository: 'exception-contracts'
           - local_path: 'contracts/lexer'
             split_repository: 'lexer-contracts'
           - local_path: 'contracts/parser'

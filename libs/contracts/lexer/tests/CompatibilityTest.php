@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace Phplrt\Contracts\Lexer\Tests;
 
+use Phplrt\Contracts\Lexer\ChannelInterface;
 use Phplrt\Contracts\Lexer\LexerInterface;
 use Phplrt\Contracts\Lexer\TokenInterface;
+use Phplrt\Contracts\Source\ReadableInterface;
 use PHPUnit\Framework\Attributes\Group;
 
 /**
@@ -20,16 +22,7 @@ class CompatibilityTest extends TestCase
         self::expectNotToPerformAssertions();
 
         new class () implements LexerInterface {
-            public function lex($source): iterable {}
-        };
-    }
-
-    public function testLexerWithMixedCompatibility(): void
-    {
-        self::expectNotToPerformAssertions();
-
-        new class () implements LexerInterface {
-            public function lex(mixed $source): iterable {}
+            public function lex(mixed $source, int $offset = 0, int $length = null): iterable {}
         };
     }
 
@@ -38,10 +31,11 @@ class CompatibilityTest extends TestCase
         self::expectNotToPerformAssertions();
 
         new class () implements TokenInterface {
-            public function getName(): string {}
+            public function getName(): string|int {}
             public function getOffset(): int {}
             public function getValue(): string {}
             public function getBytes(): int {}
+            public function getChannel(): ChannelInterface {}
         };
     }
 }

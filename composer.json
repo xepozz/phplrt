@@ -76,12 +76,9 @@
         }
     },
     "replace": {
-        "phplrt/ast-contracts": "*",
         "phplrt/buffer": "*",
         "phplrt/compiler": "*",
         "phplrt/contracts": "*",
-        "phplrt/exception": "*",
-        "phplrt/exception-contracts": "*",
         "phplrt/lexer": "*",
         "phplrt/lexer-contracts": "*",
         "phplrt/parser": "*",
@@ -94,7 +91,10 @@
         "phplrt/visitor": "*"
     },
     "scripts": {
-        "test": ["@test:unit", "@test:functional"],
+        "test": [
+            "@test:unit",
+            "@test:functional"
+        ],
         "test:unit": "phpunit --testdox --testsuite=unit",
         "test:functional": "phpunit --testdox --testsuite=functional",
         "linter": "@linter:check",
