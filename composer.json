@@ -22,7 +22,6 @@
         "ext-spl": "*"
     },
     "provide": {
-        "phplrt/exception-contracts-implementation": "^4.0",
         "phplrt/lexer-contracts-implementation": "^4.0",
         "phplrt/parser-contracts-implementation": "^4.0",
         "phplrt/position-contracts-implementation": "^4.0",
@@ -30,15 +29,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Phplrt\\Buffer\\": "libs/buffer/src",
             "Phplrt\\Compiler\\": "libs/compiler/src",
             "Phplrt\\Contracts\\Ast\\": "libs/contracts/ast/src",
-            "Phplrt\\Contracts\\Exception\\": "libs/contracts/exception/src",
             "Phplrt\\Contracts\\Lexer\\": "libs/contracts/lexer/src",
             "Phplrt\\Contracts\\Parser\\": "libs/contracts/parser/src",
             "Phplrt\\Contracts\\Position\\": "libs/contracts/position/src",
             "Phplrt\\Contracts\\Source\\": "libs/contracts/source/src",
-            "Phplrt\\Exception\\": "libs/exception/src",
             "Phplrt\\Lexer\\": "libs/lexer/src",
             "Phplrt\\Parser\\": "libs/parser/src",
             "Phplrt\\Position\\": "libs/position/src",
@@ -59,15 +55,12 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Phplrt\\Buffer\\Tests\\": "libs/buffer/tests",
             "Phplrt\\Compiler\\Tests\\": "libs/compiler/tests",
             "Phplrt\\Contracts\\Ast\\Tests\\": "libs/contracts/ast/tests",
-            "Phplrt\\Contracts\\Exception\\Tests\\": "libs/contracts/exception/tests",
             "Phplrt\\Contracts\\Lexer\\Tests\\": "libs/contracts/lexer/tests",
             "Phplrt\\Contracts\\Parser\\Tests\\": "libs/contracts/parser/tests",
             "Phplrt\\Contracts\\Position\\Tests\\": "libs/contracts/position/tests",
             "Phplrt\\Contracts\\Source\\Tests\\": "libs/contracts/source/tests",
-            "Phplrt\\Exception\\Tests\\": "libs/exception/tests",
             "Phplrt\\Lexer\\Tests\\": "libs/lexer/tests",
             "Phplrt\\Parser\\Tests\\": "libs/parser/tests",
             "Phplrt\\Position\\Tests\\": "libs/position/tests",
