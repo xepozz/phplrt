@@ -63,7 +63,7 @@ final class PrettyReader implements ReaderInterface
     {
         $result = $this->printer->line($source, $position);
 
-        return \rtrim(\ltrim((string)$result, $this->depthChars), "\r\n" . $this->depthChars);
+        return \rtrim(\ltrim((string) $result, $this->depthChars), "\r\n" . $this->depthChars);
     }
 
     /**

@@ -46,7 +46,7 @@ class Reader implements ReaderInterface
     {
         $stream = $this->getStreamFromLine($source, $position);
 
-        return (string)\fgets($stream);
+        return (string) \fgets($stream);
     }
 
     /**
@@ -60,7 +60,7 @@ class Reader implements ReaderInterface
         $stream = $this->getStreamFromLine($source, $from);
 
         while ($expected >= $actual && !\feof($stream)) {
-            yield $actual++ => \rtrim((string)\fgets($stream), "\r\n");
+            yield $actual++ => \rtrim((string) \fgets($stream), "\r\n");
         }
     }
 }

@@ -99,7 +99,7 @@ final class Executor implements ExecutorInterface
         // 1) First char MUST not be a number
         // 2) Name MUST contain only A-Z, 0-9 and "_", "-" chars
         return !\is_numeric($name[0])
-            && (bool)\preg_match('/^[a-zA-Z0-9_-]+$/', $name);
+            && (bool) \preg_match('/^[a-zA-Z0-9_-]+$/', $name);
     }
 
     /**
